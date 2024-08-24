@@ -22,7 +22,6 @@ def main():
     AsteroidField.containers = updatable
     Shot.containers = (shots, updatable, drawable)
 
-
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     AsteroidField()
 
@@ -32,7 +31,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-            
+
         for obj in updatable:
             obj.update(dt)
 
@@ -46,12 +45,12 @@ def main():
                     asteroid.split()
 
         screen.fill("black")
-        
+
         for obj in drawable:
             obj.draw(screen)
 
         pygame.display.flip()
-        
+
         # limit the framerate to 60 FPS
         dt = clock.tick(60) / 1000
 
